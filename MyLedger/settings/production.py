@@ -80,7 +80,7 @@ DATABASES = {
     }
 }
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS =  ['project-name.herokuapp.com', '.yourdomain.com']
 DATABASES = {
     'default': {
