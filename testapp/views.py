@@ -4,4 +4,4 @@ import json
 # Create your views here.
 
 def testview(request):
-    return HttpResponse(json.dumps({'name': 'Ajay'}), content_type='application/json')
+    return HttpResponse(json.dumps({'name': 'Ajay', 'last name': 'Karki'}), content_type='application/json')

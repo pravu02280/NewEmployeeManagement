@@ -18,5 +18,5 @@ from django.urls import path
 from testapp.views import testview
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', testview)
+    path('test/', testview),
 ]
