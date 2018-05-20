@@ -81,7 +81,7 @@ DATABASES = {
 }
 
 DEBUG = True
-ALLOWED_HOSTS =  ['project-name.herokuapp.com', '.yourdomain.com']
+ALLOWED_HOSTS =  ['my-ledger-app.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
