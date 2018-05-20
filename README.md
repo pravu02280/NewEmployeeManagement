@@ -15,4 +15,4 @@ After cloning create venv [(Instructions)](https://tutorial.djangogirls.org/en/d
 #### Install everything inside requirements.txt
 #### (Open cmd in project directory)
 * pip install -r requirements.txt
-#### Now you are ready !!!
+#### Now you are ready to go!!!
