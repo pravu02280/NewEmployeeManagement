@@ -1,6 +1,11 @@
 import os
 
-if os.environ.get('env') == 'PRODUCTION':
+from .base import *
+
+if os.environ.get('environment') == 'production':
     from .production import *
 else:
-    from .local import *
+    try:
+        from .local import *
+    except:
+        pass
