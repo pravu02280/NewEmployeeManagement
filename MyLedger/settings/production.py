@@ -25,7 +25,7 @@ SECRET_KEY = '_9y7_$kkuw$r*z)692_z)q9+!r-yjsjc4hpc-cy30$i-rgw@g_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['my-ledger-app.herokuapp.com']
 
 
 # Application definition
