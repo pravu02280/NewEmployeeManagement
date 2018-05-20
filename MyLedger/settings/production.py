@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'MyLedger.wsgi.application'
 #
 # }
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS =  ['my-ledger-app.herokuapp.com']
 DATABASES = {
     # 'default': {
