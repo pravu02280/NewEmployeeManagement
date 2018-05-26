@@ -2,9 +2,9 @@
 {% block content %}
 <div>
 
-    invoice : {{ purchase.invoice }}
-    cheque : {{ purchase.ch_no }}
-    description: {{ purchase.description }}
+    Invoice : {{ purchase.invoice }}
+    Cheque : {{ purchase.ch_no }}
+    Description: {{ purchase.description }}
     <h2> Add Product</h2>
     <form method="POST" method="productcreate/">
         {% csrf_token %}

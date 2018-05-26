@@ -25,6 +25,12 @@ class PurchaseCreateView(generic.edit.CreateView):
 
 
 class PurchaseDetailView(generic.detail.DetailView):
+    """
+    DetailView that has PurchaseDetail form 
+    and shows some minor details entered 
+    previously in Purchase form
+
+    """
     model = Purchase
     template_name='entry/product_details.html'
 
