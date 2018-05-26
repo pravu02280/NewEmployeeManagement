@@ -21,4 +21,5 @@ urlpatterns = [
     path('', inventoryViews.home, name='home'),
     path('', include('inventory.urls')),
     path('', include('help.urls')),
+    path('', include('entry.urls')),
 ]
