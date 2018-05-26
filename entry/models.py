@@ -5,7 +5,7 @@ from django.urls import reverse
 # Create your models here.
 
 
-class ProductDetails(models.Model):
+class PurchaseDetail(models.Model):
     product_name =  models.CharField(max_length=128, blank=False)
     quantity = models.PositiveSmallIntegerField(blank=False)
     rate =  models.IntegerField(blank=False)
@@ -20,7 +20,7 @@ class Purchase(models.Model):
     vendor = models.CharField(max_length=128, blank=False)
     date = models.DateTimeField(default=timezone.now, blank=False)
     description = models.TextField(max_length=4096, blank=True, null=True)
-    purchase_product =models.ManyToManyField(ProductDetails)
+    purchase_detail =models.ManyToManyField(PurchaseDetail)
 
 
     def __str__(self):

@@ -1,12 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import purchaseform
+from .forms import PurchaseForm,PurchaseDetailForm
 from django.views import generic
-
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from .models import Purchase
-from .forms import ProductDetailsForm
 from django.views import View
 # Create your views here.
 
@@ -16,7 +14,7 @@ class PurchaseCreateView(generic.edit.CreateView):
     This is a class based view for creating new Purchase objects
     """
     model = Purchase
-    form_class = purchaseform
+    form_class = PurchaseForm
     template_name = 'entry/purchase.html'
 
 
@@ -39,23 +37,11 @@ class PurchaseDetailView(generic.detail.DetailView):
     def get_context_data(self, *args, **kwargs):
         context = {}
         context['purchase'] = self.get_object()
-        context['product_form'] = ProductDetailsForm
+        context['product_form'] = PurchaseDetailForm
         return context
 
     def post(self, request, *args, **kwargs):
-        form = ProductDetailsForm(request.POST)
+        form = PurchaseDetailForm(request.POST)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(reverse('home'))
-
-# def productCreateView(request):
-#     if request.method == "POST":
-#         form = ProductDetailsForm(request.POST)
-#         if form.is_valid():
-            
-#             # <process form cleaned data>
-#             form.save()
-            
-#     else:
-        
-#     return HttpResponseRedirect('entry/product_details')
