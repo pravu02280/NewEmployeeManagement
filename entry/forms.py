@@ -7,4 +7,4 @@ class PurchaseForm(forms.ModelForm):
 class PurchaseDetailForm(forms.ModelForm):
     class Meta:
         model = PurchaseDetail
-        fields = ['product_name','quantity','rate','total','remarks',]
+        fields = ['purchase','product_name','quantity','rate','total','remarks',]
