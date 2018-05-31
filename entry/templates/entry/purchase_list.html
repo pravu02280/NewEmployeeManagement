@@ -1,8 +1,13 @@
 <h1>PurchaseMade</h1>
-<ul>
+<ol>
 {% for purchase in object_list %}
-    <li>{{ purchase}}</li>
+    
+    <li>Vendor: {{ purchase.vendor}}</li><br>
+    Invoice: {{ purchase.invoice}}<br>
+    Ch No: {{ purchase.ch_no}}<br>
+    Date: {{ purchase.date}}<br>
+    Description: {{ purchase.description}}<br>
 {% empty %}
     <li>No Purchase yet.</li>
 {% endfor %}
-</ul>
+</ol>
