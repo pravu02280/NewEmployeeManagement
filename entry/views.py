@@ -4,8 +4,9 @@ from .forms import PurchaseForm,PurchaseDetailForm
 from django.views import generic
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
-from .models import Purchase
+from .models import Purchase,PurchaseDetail
 from django.views import View
+from django.utils import timezone
 # Create your views here.
 
 class PurchaseCreateView(generic.edit.CreateView):
@@ -50,4 +51,17 @@ class PurchaseDetailView(generic.detail.DetailView):
         form = PurchaseDetailForm(request.POST)
         if form.is_valid():
             form.save()
+
+            # This is how we can count objects in inventory
+            # for pd in PurchaseDetail.objects.all():
+            #     if(pd.product_name=="WOOD"):
+            #         print(pd.quantity)
         return HttpResponseRedirect(reverse('home'))
+
+class PurchaseListView(generic.list.ListView):
+    model =Purchase
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context

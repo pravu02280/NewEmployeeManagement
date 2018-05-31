@@ -1,0 +1,8 @@
+<h1>PurchaseMade</h1>
+<ul>
+{% for purchase in object_list %}
+    <li>{{ purchase}}</li>
+{% empty %}
+    <li>No Purchase yet.</li>
+{% endfor %}
+</ul>
