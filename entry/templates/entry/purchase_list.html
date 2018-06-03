@@ -1,0 +1,19 @@
+<h1>PurchaseMade</h1>
+
+{% for purchases in object_list %}
+    Vendor: {{ purchases.vendor}} | Date: {{ purchases.date}}<br>
+    Invoice: {{ purchases.invoice }} | Ch No: {{purchases.ch_no}}<br>
+    Description: {{ purchases.description}}<br>
+    Purchase Details:
+    <ol>
+        {% for purchaseitems in purchases.purchasedetail_set.all %}
+    <li>Product Name: {{ purchaseitems.product_name }} </li>
+        Quantity: {{purchaseitems.quantity}}<br>
+        Rate: {{purchaseitems.rate}}<br>
+        Total: {{purchaseitems.total}}<br>
+        Remarks: {{purchaseitems.remarks}}<br>
+        {% endfor %}
+    </ol>
+    {% empty %}
+    <li>No Purchase yet.</li>
+{% endfor %}
