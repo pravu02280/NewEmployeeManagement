@@ -59,9 +59,18 @@ class PurchaseDetailView(generic.detail.DetailView):
         return HttpResponseRedirect(reverse('home'))
 
 class PurchaseListView(generic.list.ListView):
-    model =Purchase
+    model =PurchaseDetail
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
         return context
+
+    # i=1
+    # for p in Purchase.objects.all():
+    #     print(p.vendor)
+    #     for pd in PurchaseDetail.objects.all():
+    #         if(PurchaseDetail.objects.filter(purchase__pk = i)):
+    #             print("Rate",pd.rate)
+    #     print(PurchaseDetail.objects.filter(purchase__pk = i))
+    #     i=i+1
+        

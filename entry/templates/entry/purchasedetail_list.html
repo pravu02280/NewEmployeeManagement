@@ -1,0 +1,12 @@
+<h1>PurchaseMade</h1>
+<ol>
+{% for purchasedetail in object_list %}
+    Vendor: {{ purchasedetail.purchase.vendor}} | Date: {{ purchasedetail.purchase.date}}<br>
+    Invoice: {{ purchasedetail.purchase.invoice}} | Ch No: {{ purchasedetail.purchase.ch_no}}<br>
+    Description: {{ purchasedetail.purchase.description}}<br>
+    Purchase Details:
+    <li>{{ purchasedetail.product_name }} </li>
+    {% empty %}
+    <li>No Purchase yet.</li>
+{% endfor %}
+</ol>
