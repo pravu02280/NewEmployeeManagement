@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
+from django.db.models.signals import post_save
 from django.urls import reverse
 # Create your models here.
 
@@ -42,3 +42,10 @@ class PurchaseDetail(models.Model):
     def __str__(self):
         return (self.product_name)
     
+    # def update_inventory(sender, **kwargs):
+    #     from inventory.models import Item
+    #     if kwargs['created']:
+    #         print("Created")
+            
+
+    # post_save.connect(update_inventory,sender=Purchase)

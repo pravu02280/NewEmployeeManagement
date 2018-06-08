@@ -10,14 +10,13 @@
             <th>Status</th>
         </tr>
 {% for item in object_list %}
-        {% for itemdetail in item.itemdetail_set.all %}
-            <tr>
-                <td>{{item.item_name}}</td>
-                <td>{{itemdetail.item_quantity}}</td>
-                <td>{{itemdetail.item_rate}}</td>
-                <td>{{ itemdetail.item_status|yesno:"Available,Low stock" }}</td>
-            </tr>
-        {% endfor %}
+    <tr>
+        <td>{{item.item_name}}</td>
+        <td>{{item.item_quantity}}</td>
+        <td>{{item.item_rate}}</td>
+        <td>{{item.item_status|yesno:"Available,Low stock" }}</td>
+    </tr>
+    
     {% empty %}
     Inventory is Empty.
 {% endfor %}

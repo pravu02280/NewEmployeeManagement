@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from entry.models import PurchaseDetail
+from inventory.models import Item
 from .models import Item
 # Create your views here.
 
@@ -24,13 +25,6 @@ def home(request):
             c_steel = c_steel + pd.quantity
         else:
             c_plastic = c_plastic + pd.quantity
-    print("wOOD = ",c_wood)
-    print("FABRIC = ",c_fabric)
-    print("STEEL = ",c_steel)
-    print("LEATHER = ",c_leather)
-    print("GLASS = ",c_glass)
-    print("PLASTIC = ",c_plastic)
-
     return render(request, 'home.html')
 
 class viewInventoryView(generic.ListView):
