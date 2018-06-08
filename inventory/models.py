@@ -8,10 +8,10 @@ class Item(models.Model):
         return self.item_name
 
 class ItemDetail(models.Model):
-    inventory =     models.ForeignKey(Item,on_delete = models.CASCADE)
+    item =          models.ForeignKey(Item,on_delete = models.CASCADE)
     item_quantity = models.PositiveIntegerField(default = 0)
     item_rate =     models.IntegerField(default = 0)
     item_status =   models.BooleanField(default = True)
 
     def __str__(self):
-        return self.inventory.item_name
+        return self.item.item_name
