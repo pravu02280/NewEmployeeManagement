@@ -9,6 +9,9 @@ from django.views import View
 from django.utils import timezone
 
 
+from inventory.models import Item
+
+
 class PurchaseCreateView(generic.edit.CreateView):
     """
     CreateView to create new purchase
@@ -50,6 +53,15 @@ class PurchaseDetailView(generic.detail.DetailView):
     def post(self, request, *args, **kwargs):
         form = PurchaseDetailForm(request.POST)
         if form.is_valid():
+            data = request.POST.get('product_name')
+            quantity = int(request.POST.get('quantity'))
+            for item in Item.objects.all():
+                print("Inside For")
+                print("This is from form ", data,"This is from inventorry",item.item_name)
+                if(data.lower() == item.item_name.lower()):
+                    print("found ",data,'=',item.item_name)
+                    item.item_quantity = item.item_quantity + quantity
+                item.save()
             form.save()
         return HttpResponseRedirect(reverse('home'))
 
