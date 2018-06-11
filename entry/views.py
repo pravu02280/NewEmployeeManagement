@@ -7,10 +7,7 @@ from django.shortcuts import get_object_or_404
 from .models import Purchase,PurchaseDetail
 from django.views import View
 from django.utils import timezone
-
-
 from inventory.models import Item
-
 
 class PurchaseCreateView(generic.edit.CreateView):
     """
@@ -56,10 +53,7 @@ class PurchaseDetailView(generic.detail.DetailView):
             data = request.POST.get('product_name')
             quantity = int(request.POST.get('quantity'))
             for item in Item.objects.all():
-                print("Inside For")
-                print("This is from form ", data,"This is from inventorry",item.item_name)
                 if(data.lower() == item.item_name.lower()):
-                    print("found ",data,'=',item.item_name)
                     item.item_quantity = item.item_quantity + quantity
                 item.save()
             form.save()
@@ -71,13 +65,3 @@ class PurchaseListView(generic.list.ListView):
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
-    # i=1
-    # for p in Purchase.objects.all():
-    #     print(p.vendor)
-    #     for pd in PurchaseDetail.objects.all():
-    #         if(PurchaseDetail.objects.filter(purchase__pk = i)):
-    #             print("Rate",pd.rate)
-    #     print(PurchaseDetail.objects.filter(purchase__pk = i))
-    #     i=i+1
-        
