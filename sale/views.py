@@ -44,7 +44,7 @@ class SalesDetailView(generic.detail.DetailView):
     def get_context_data(self, *args, **kwargs):
         context = {}
         context['sales'] = self.get_object()
-        context['product_form'] = SalesDetailForm
+        context['sale_form'] = SalesDetailForm
         return context
 
     def post(self, request, *args, **kwargs):
