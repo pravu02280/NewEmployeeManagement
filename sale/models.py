@@ -17,8 +17,17 @@ class Sale(models.Model):
         return reverse('sale:sales_detail', kwargs={'pk': self.pk})
 
 class SaleDetail(models.Model):
+    PRODUCT_CHOICES = (
+        ('WOOD', 'Wood'),
+        ('GLASS', 'Glass'),
+        ('PLASTIC', 'Plastic'),
+        ('LEATHER', 'Leather'),
+        ('FABRIC','Fabric'),
+        ('STEEL', 'Steel'),
+    )
     sales = models.ForeignKey(Sale,on_delete=models.CASCADE)
-    product_name =  models.CharField(max_length=30)
+    product_name =  models.CharField(max_length=30,choices=PRODUCT_CHOICES,
+                        default='WOOD')
     quantity = models.PositiveSmallIntegerField(blank=False)
     rate =  models.IntegerField(blank=False)
     total = models.IntegerField(blank=False)
