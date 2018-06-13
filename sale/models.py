@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 
-
 class Sale(models.Model):
     invoice = models.SmallIntegerField(primary_key=True,blank=False)
     ch_no = models.SmallIntegerField(blank=True,null=True)
@@ -35,8 +34,3 @@ class SaleDetail(models.Model):
 
     def __str__(self):
         return (self.product_name)
-   
-
-
-
-
