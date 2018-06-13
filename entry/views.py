@@ -52,9 +52,11 @@ class PurchaseDetailView(generic.detail.DetailView):
         if form.is_valid():
             data = request.POST.get('product_name')
             quantity = int(request.POST.get('quantity'))
+            rate = int(request.POST.get('rate'))
             for item in Item.objects.all():
                 if(data.lower() == item.item_name.lower()):
                     item.item_quantity = item.item_quantity + quantity
+                    item.item_rate = rate
                 item.save()
             form.save()
         return HttpResponseRedirect(reverse('home'))
