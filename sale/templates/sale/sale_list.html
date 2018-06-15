@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>SaleMade</h1>
+
+{% for sales in object_list %}
+    purchasers: {{ sales.purchasers}} | Date: {{ sales.date}}<br>
+    Invoice: {{ sales.invoice }} | Ch No: {{sales.ch_no}}<br>
+    Description: {{ sales.description}}<br>
+    Sales Details:
+    <ol>
+        {% for salesitems in sales.saledetail_set.all %}
+    <li>Product Name: {{ salesitems.product_name }} </li>
+        Quantity: {{salesitems.quantity}}<br>
+        Rate: {{salesitems.rate}}<br>
+        Total: {{salesitems.total}}<br>
+        Remarks: {{salesitems.remarks}}<br>
+        {% endfor %}
+    </ol>
+    {% empty %}
+    <li>No Sales yet.</li>
+{% endfor %}
+{% endblock %}
