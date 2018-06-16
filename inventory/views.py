@@ -4,7 +4,6 @@ from entry.models import PurchaseDetail
 from .models import Item
 from inventory.models import Item
 from .models import Item
-# Create your views here.
 
 def home(request):
     """
@@ -22,7 +21,7 @@ def home(request):
     # for pd in PurchaseDetail.objects.all():
     #     if(pd.product_name=="WOOD"):
     #         c_wood=c_wood + pd.quantity
-    #         wrate=pd.rate
+    #         wrate = pd.rate
     #     elif(pd.product_name=="FABRIC"):
     #         c_fabric = c_fabric + pd.quantity
     #         frate=pd.rate

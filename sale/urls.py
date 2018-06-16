@@ -7,5 +7,4 @@ urlpatterns = [
     path('salesdetail/<int:pk>', views.SalesDetailView.as_view(), name="sales_detail"),
     path('salesmade/', views.SalesListView.as_view(),name='sales_made'),
     # path('productcreate/',views.productCreateView, name ='productcreate')
-
-]
+    ]
