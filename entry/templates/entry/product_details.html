@@ -1,17 +1,57 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block content %}
+{% load static %}
 <div>
-
+<h3>
     Invoice : {{ purchase.invoice }}
     Cheque : {{ purchase.ch_no }}
+    Vendor : {{ purchase.vendor}}
     Description: {{ purchase.description }}
+</h3>
+</div>
+
+<div>    
     <h2> Add Product</h2>
     <form method="POST" method="productcreate/">
         {% csrf_token %}
-        {{ product_form.as_p}}
-    <input type="submit" value="submit">
+        {{ form.non_field_errors }}
+        <div>
+            {{product_form.purchase.errors}}
+            {{ product_form.purchase.label_tag }}
+            {{product_form.purchase}}
+        </div>
+
+        <div >
+            {{product_form.product_name.errors}}
+            {{ product_form.product_name.label_tag }}
+            {{product_form.product_name}}
+        </div>
+
+        <div>
+            {{product_form.quantity.errors}}
+            {{ product_form.quantity.label_tag }}
+            {{product_form.quantity}}
+        </div>
+        <div>
+            {{product_form.rate.errors}}
+            {{product_form.rate.label_tag }}
+            {{product_form.rate}}
+        </div>
+
+        <div>
+            {{product_form.total.errors}}    
+            {{ product_form.total.label_tag }}
+            {{product_form.total}}
+        </div>
+
+        <div>
+            {{product_form.remarks.errors}}
+            {{product_form.remarks.label_tag }}
+            {{product_form.remarks}}
+        </div>
+
+        <input type="submit" value="Submit">
 </form>
-</div>
+</div>    
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
-
-

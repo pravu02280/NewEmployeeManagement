@@ -1,15 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div>
-
+<h3>
     Invoice : {{ sales.invoice }}
     Cheque : {{ sales.ch_no }}
     Description: {{ sales.description }}
-    <h2> Add Product</h2>
+</h3>
+</div>
+<div>
+    <h2> Add Sales Details</h2>
     <form method="POST" >
+        <table>
         {% csrf_token %}
-        {{ product_form.as_p}}
-    <input type="submit" value="submit">
+        {{ sale_form.as_table}}
+    <tr>
+        <td><input type="submit" value="Submit"></td>
+    </tr>
+</table>
 </form>
 </div>
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock %}

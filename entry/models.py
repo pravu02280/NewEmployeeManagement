@@ -38,14 +38,9 @@ class PurchaseDetail(models.Model):
     total = models.IntegerField(blank=False)
     remarks = models.CharField(max_length=250)
 
-
+    def _get_total(self):
+            return self.quantity * self.rate
+    labor_total = property(_get_total)
     def __str__(self):
         return (self.product_name)
     
-    # def update_inventory(sender, **kwargs):
-    #     from inventory.models import Item
-    #     if kwargs['created']:
-    #         print("Created")
-            
-
-    # post_save.connect(update_inventory,sender=Purchase)
